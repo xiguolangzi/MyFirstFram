@@ -1,6 +1,8 @@
 import 'package:logger/logger.dart';
 import 'package:date_format/date_format.dart';
 
+import 'log_output.dart';
+
 class CustomPrinter extends LogPrinter {
   // 1. 传入类名
   String className;
