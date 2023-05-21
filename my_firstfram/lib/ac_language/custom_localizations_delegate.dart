@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:my_firstfram/language/custom_localizations.dart';
+import 'package:my_firstfram/ac_language/custom_localizations.dart';
 
 class CustomLocaliztionsDelegate
     extends LocalizationsDelegate<CustomLocalizations> {

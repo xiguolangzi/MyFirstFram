@@ -6,7 +6,6 @@ import 'custom_localizations_delegate.dart';
 
 class CustomLocalizations {
   Locale locale;
-  
   CustomLocalizations(this.locale);
 
   late Map<String, String> _localiztedValue;
@@ -14,8 +13,8 @@ class CustomLocalizations {
   // 3.1 给 _localiztedValue 异步加载赋值
   Future<bool> loadJson() async {
     // 3.1.1 rootBundle 根目录资源包的加载
-    String jsonString = await rootBundle
-        .loadString("language_pages/${locale.languageCode}.json");
+    String jsonString = await rootBundle.loadString(
+        "lib/ac_language/language_pages/${locale.languageCode}.json");
     // 3.1.2 json 解析
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     // 3.1.3 解析后的 json 赋值 - 通过.map((key, value){ return MapEntry(key,value)}) 赋值

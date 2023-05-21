@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'language/custom_localizations.dart';
-import 'language/main_processing_language.dart';
-import 'log/log_driver.dart';
-import 'log/main_processing_log.dart';
+import 'ac_language/language_setting.dart';
+import 'ab_log/log_driver.dart';
+import 'ab_log/main_processing_log.dart';
 import 'dart:async';
+
+import 'af_view/home.dart';
 
 void main() {
   MainProcessingLog();
@@ -22,36 +22,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
+      // 1. 基础配置 ---------------------
       title: "flutter first frame",
       debugShowCheckedModeBanner: false,
-      
-      // 国际化 - 代理绑定
-      localizationsDelegates: [
-        // 本地化代理 - android 组件多语言
-        GlobalMaterialLocalizations.delegate,
-        // 本地化代理 - Widgets 组件多语言
-        GlobalWidgetsLocalizations.delegate,
-        // 本地化代理 - IOS 组件多语言
-        GlobalCupertinoLocalizations.delegate,
 
-        // 本地化代理 - 文本 - 自定义
-        // CustomLocalizations.delegate,
-        CustomLocalizations.delegate
-      ],
+      // 2. 国际化 - 多语言处理 ------------------------
+      localizationsDelegates: localizationsDelegate, // 国际化 - 代理绑定
+      supportedLocales: supportedLocale, // 国际化 - 支持的语言代码
+      // 3. 语言环境检查
+      localeResolutionCallback: (locale, supportedLocales) {
+        logs.i("deviceLocale -- $locale");
+        logs.i("languageCode -- ${locale!.languageCode}");
+        logs.i("language -- ${locale.countryCode}");
+        // 3.1 检查设置的语言环境supportedLocales 是否匹配 当前的语言环境locale
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+            // 3.2 如果有匹配的,则返回设置的语言
+            return supportedLocale;
+          }
+        }
+        // 3.3  如果没有匹配,则返回设置的语言的第一种语言
+        return supportedLocales.first;
+      },
 
-      // 国际化 - 支持的语言代码
-      supportedLocales:const [
-        Locale("en", "US"),
-        Locale("zh", "CN"),
-        Locale("es", "ES")
-      ],
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.pink,
+            textStyle: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
+        ),
+      ),
 
-      MainProcessingLanguage().localeResolutionCallback();
-      theme: ThemeData(),
-
-      home: ,
-
+      home: const Home(),
     );
   }
 }
