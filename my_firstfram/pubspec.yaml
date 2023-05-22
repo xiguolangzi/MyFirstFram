@@ -42,6 +42,10 @@ dependencies:
   # 组件语言国际化
   flutter_localizations:
     sdk: flutter
+  # 谷歌文字
+  google_fonts : ^4.0.4
+  # 状态管理
+  provider : ^6.0.5
 
 dev_dependencies:
   flutter_test:

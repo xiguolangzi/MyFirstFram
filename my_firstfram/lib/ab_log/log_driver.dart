@@ -12,6 +12,7 @@ class CustomPrinter extends LogPrinter {
   // 3. 外界调用的静态方法
   static Logger logging(Type className) => Logger(
         // 选择log打印方法
+        // printer: CustomPrinter(className: className.toString()),
         printer: CustomPrinter(className.toString()),
         // 打印级别控制
         level: Level.info,
