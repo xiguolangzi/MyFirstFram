@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_firstfram/ag_view/shop_view.dart';
 import '../ac_language/custom_localizations.dart';
 
 class LoginView extends StatelessWidget {
