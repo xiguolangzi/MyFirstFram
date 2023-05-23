@@ -7,6 +7,7 @@ ThemeData myTheme = ThemeData(
   primarySwatch: Colors.blue,
   textTheme: GoogleFonts.emilysCandyTextTheme(),
   scaffoldBackgroundColor: Colors.green[100],
+  useMaterial3: true,
 );
 // 默认主题 -- END
 
