@@ -13,7 +13,14 @@ class LoginSwiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     logs.i("轮播图 -- $imgs");
-    return Swiper(
+    return
+        // Container(
+        //   decoration: BoxDecoration(
+        //     color: Colors.green,
+        //   ),
+        // );
+
+        Swiper(
       itemCount: imageUrls.length,
       itemBuilder: (context, index) {
         return Image.asset(
@@ -27,9 +34,9 @@ class LoginSwiper extends StatelessWidget {
       // 轮播延时
       // duration: 800,
       // 中间大图占宽比
-      // viewportFraction: 0.8,
+      viewportFraction: 0.8,
       // 两边图片的占比
-      // scale: 0.95,
+      scale: 0.95,
       // 小圆点
       pagination: const SwiperPagination(
         alignment: Alignment.bottomCenter,

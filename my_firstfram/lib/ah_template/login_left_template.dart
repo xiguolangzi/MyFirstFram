@@ -10,9 +10,12 @@ class LoginTemplate extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const SizedBox(height: 10),
-        LoginSwiper(),
-        const SizedBox(height: 20),
+        Expanded(child: Text("预留")),
+        Expanded(
+          flex: 3,
+          child: LoginSwiper(),
+        ),
+        Expanded(child: Text("预留")),
       ],
     );
   }
