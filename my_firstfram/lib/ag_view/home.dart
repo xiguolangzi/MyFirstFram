@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../ae_state/menu_drower_controller.dart';
 import 'login_view.dart';
+import 'text_view.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -15,9 +16,7 @@ class Home extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MenuDrowerController()),
         // 其他状态.....
       ],
-      child: const Scaffold(
-        body: LoginView(),
-      ),
+      child: const LoginView(),
     );
   }
 }

@@ -6,7 +6,6 @@ import 'ab_log/log_driver.dart';
 import 'ab_log/main_processing_log.dart';
 import 'dart:async';
 import 'ac_language/select_language.dart';
-import 'ag_view/unknown_view.dart';
 
 void main() {
   MainProcessingLog();
@@ -41,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       localeResolutionCallback: SelectLanguage.checkLocale, // 2.3 国际化 - 选择语言环境
 
       // 3. 主题 ------
-      theme: myTheme,
+      theme: darkTheme,
 
       // 4. 路由 ------
       onGenerateRoute: RouteSetting.generateRoute,

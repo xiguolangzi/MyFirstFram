@@ -3,6 +3,7 @@ import 'package:my_firstfram/ab_log/log_driver.dart';
 import '../ag_view/home.dart';
 import '../ag_view/login_view.dart';
 import '../ag_view/shop_view.dart';
+import '../ag_view/text_view.dart';
 import '../ag_view/unknown_view.dart';
 
 class RouteSetting {
@@ -20,6 +21,9 @@ class RouteSetting {
       case '/Login':
         logs.i("调用 LoginView()");
         return MaterialPageRoute(builder: (_) => const LoginView());
+      case '/TextView':
+        logs.i("调用 TextView()");
+        return MaterialPageRoute(builder: (_) => const TextView());
 
       default:
         // 解析路由
