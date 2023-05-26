@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 // 默认主题 -- START
 ThemeData myTheme = ThemeData(
-  primaryColor: Colors.teal,
-  primarySwatch: Colors.blue,
-  textTheme: GoogleFonts.emilysCandyTextTheme(),
-  scaffoldBackgroundColor: Colors.green[100],
-  useMaterial3: true,
-);
+    primaryColor: Colors.teal,
+    primarySwatch: Colors.blue,
+    textTheme: GoogleFonts.emilysCandyTextTheme(),
+    scaffoldBackgroundColor: Colors.green[100],
+    useMaterial3: true,
+    canvasColor: Colors.white);
 // 默认主题 -- END
 
 // 黑暗主题 -- START

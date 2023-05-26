@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:my_firstfram/ad_theme/custom_theme.dart';
 import 'package:my_firstfram/af_route/route_setting.dart';
@@ -14,6 +15,19 @@ void main() {
     var log = CustomPrinter.logging(FlutterError);
     // 日志处理逻辑
     log.e('Caught error: $error\n$stack');
+  });
+
+  // windows 窗体设置
+  doWhenWindowReady(() {
+    // 初始化窗口属性
+    var initialSize = const Size(600, 450);
+    // appWindow.size = initialSize;
+    // 设置最小屏幕尺寸
+    appWindow.minSize = initialSize;
+    // appWindow.maxSize = initialSize;
+    appWindow.show();
+    // 托盘提示名字
+    appWindow.title = "good";
   });
 }
 
@@ -40,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       localeResolutionCallback: SelectLanguage.checkLocale, // 2.3 国际化 - 选择语言环境
 
       // 3. 主题 ------
-      theme: darkTheme,
+      theme: myTheme,
 
       // 4. 路由 ------
       onGenerateRoute: RouteSetting.generateRoute,
