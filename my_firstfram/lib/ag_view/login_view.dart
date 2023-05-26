@@ -32,7 +32,12 @@ class _LoginViewState extends State<LoginView> {
           Expanded(
             flex: 1,
             child: Container(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Colors.green, Colors.white],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      stops: [0.0, 1.0])),
             ),
           )
         ],
