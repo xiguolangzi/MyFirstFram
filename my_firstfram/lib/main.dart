@@ -7,11 +7,11 @@ import 'ab_log/log_driver.dart';
 import 'ab_log/main_processing_log.dart';
 import 'dart:async';
 import 'ac_language/select_language.dart';
-import 'ae_state/init_shared_preferences.dart';
+import 'ae_state/shared_preferences_manager.dart';
 
 void main() {
   MainProcessingLog();
-  InitSharedPreferences().initDatas();
+  SharedPreferencesManager.init();
   // 异步日志获取
   runZonedGuarded(() => runApp(const MyApp()), (error, stack) {
     var log = CustomPrinter.logging(FlutterError);
@@ -42,9 +42,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var logs = CustomPrinter.logging(_MyAppState);
+  late String kTheme;
+  late ThemeData vTheme;
 
   @override
   Widget build(BuildContext context) {
+    kTheme = SharedPreferencesManager().getString("theme") ?? "darkTheme";
+    if (kTheme == "darkTheme") {
+      vTheme = darkTheme;
+    } else {
+      vTheme = myTheme;
+    }
+
     return MaterialApp(
       // 1. 基础配置 ------
       title: "flutter first frame",
@@ -56,7 +65,7 @@ class _MyAppState extends State<MyApp> {
       localeResolutionCallback: SelectLanguage.checkLocale, // 2.3 国际化 - 选择语言环境
 
       // 3. 主题 ------
-      theme: myTheme,
+      theme: vTheme,
 
       // 4. 路由 ------
       onGenerateRoute: RouteSetting.generateRoute,
