@@ -17,7 +17,7 @@ class SharedPreferencesManager {
     logs.i("缓存数据库 设置 - $key : $value");
   }
 
-  // 获取 字符串 默认"null"
+  // 获取 字符串 默认"null" 调用时需要给出空值对应的默认值
   String? getString(String key) {
     logs.i("缓存数据库 获取 $key 的值");
     return _preferences.getString(key);

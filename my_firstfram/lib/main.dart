@@ -10,8 +10,8 @@ import 'ac_language/select_language.dart';
 import 'ae_state/shared_preferences_manager.dart';
 
 void main() {
-  MainProcessingLog();
   SharedPreferencesManager.init();
+  MainProcessingLog();
   // 异步日志获取
   runZonedGuarded(() => runApp(const MyApp()), (error, stack) {
     var log = CustomPrinter.logging(FlutterError);
